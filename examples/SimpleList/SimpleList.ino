@@ -9,7 +9,9 @@
 	https://github.com/SloCompTech/QList
 
 */
-#include "Qlist.h"
+#include "QList.h"
+// Need to be for unknown reason
+#include "QList.cpp"
 QList<String> myList;
 void setup()
 {
