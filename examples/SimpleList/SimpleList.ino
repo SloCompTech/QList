@@ -9,6 +9,7 @@
 	https://github.com/SloCompTech/QList
 
 */
+#include "Qlist.h"
 QList<String> myList;
 void setup()
 {
