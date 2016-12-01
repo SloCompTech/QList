@@ -4,7 +4,7 @@
 template<typename T>
 QList<T>::QList()
 {
-  size = 0;
+  len = 0;
   start = NULL;
   end = NULL;
 }
@@ -91,7 +91,7 @@ void QList<T>::pop_back()
       end->next = NULL;
     else // List became empty so we need to clear start
       start = NULL;
-
+    len--; // Decrease counter
   }
 }
 
