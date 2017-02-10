@@ -3,6 +3,12 @@ Linked list library for Arduino
 
 Purpose of this library is to enable programers to create lists of things
 
+Before we can start using library, we need to include library to our sketch
+``` C++
+  #include <QList.h>
+  #include "QList.cpp" // Use only if IDE shows compile error
+```
+
 First, we create simple list object example for ints:
 ``` C++
   QList<int> list;
