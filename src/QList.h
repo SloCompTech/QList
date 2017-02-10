@@ -15,6 +15,8 @@
 #define NULL 0
 #endif
 
+#include "Arduino.h"
+
 template<class T>
 class QList
 {
