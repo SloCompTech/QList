@@ -10,6 +10,7 @@
 
 */
 #include "QList.h"
+#include "QList.cpp" // For strange bug fix
 QList<String> myList;
 void setup()
 {
