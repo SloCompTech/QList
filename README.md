@@ -26,6 +26,8 @@ Items on the list can be removed:
       - always check if index is in valid range before you try to clear item
   */
   list.clear(index);
+
+  list.clear(); // This removes ALL items from list
 ```
 Items on the list can accessed:
 ``` C++
