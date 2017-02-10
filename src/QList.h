@@ -46,5 +46,9 @@ public:
   T get(int index); //!< Get item at given index >
   T at(int index); //!< Get item at given index >
 
+  // Non - critical functions
+  int length();
+  int indexOf(T val);
+
 };
 #endif

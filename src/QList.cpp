@@ -186,3 +186,20 @@ T QList<T>::at(int index)
   }
   return T(); // Return default value
 }
+
+// Get length
+template<class T>
+int QList<T>::length()
+{
+  return this->len;
+}
+
+// Get index of value
+template<class T>
+int QList<T>::indexOf(T val)
+{
+  for(int i=0;i<this->size();i++)
+    if(this->at(i) == val)
+      return i;
+  return -1;
+}
