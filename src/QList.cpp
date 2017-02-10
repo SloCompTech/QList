@@ -1,7 +1,7 @@
 #include "QList.h"
 
 // Constructor
-template<typename T>
+template<class T>
 QList<T>::QList()
 {
   len = 0;
@@ -10,14 +10,14 @@ QList<T>::QList()
 }
 
 // Destructor
-template<typename T>
+template<class T>
 QList<T>::~QList()
 {
   clear();
 }
 
 // Push at front
-template<typename T>
+template<class T>
 void QList<T>::push_front(const T i)
 {
   node *tmp = new node;
@@ -40,7 +40,7 @@ void QList<T>::push_front(const T i)
 }
 
 // Push at back
-template<typename T>
+template<class T>
 void QList<T>::push_back(const T i)
 {
   node *tmp = new node;
@@ -63,7 +63,7 @@ void QList<T>::push_back(const T i)
 }
 
 // Pop from front
-template<typename T>
+template<class T>
 void QList<T>::pop_front()
 {
   if(start!=NULL)
@@ -80,7 +80,7 @@ void QList<T>::pop_front()
 }
 
 // Pop from back
-template<typename T>
+template<class T>
 void QList<T>::pop_back()
 {
   if(end!=NULL)
@@ -96,7 +96,7 @@ void QList<T>::pop_back()
 }
 
 // Get item from front
-template<typename T>
+template<class T>
 T QList<T>::front()
 {
   if(start!=NULL)
@@ -105,7 +105,7 @@ T QList<T>::front()
 }
 
 //Get item from back
-template<typename T>
+template<class T>
 T QList<T>::back()
 {
   if(end!=NULL)
@@ -114,14 +114,14 @@ T QList<T>::back()
 }
 
 // Get size
-template<typename T>
+template<class T>
 int QList<T>::size()
 {
   return this->len;
 }
 
 // Clear list
-template<typename T>
+template<class T>
 void QList<T>::clear()
 {
   node *tmp = start;
@@ -134,7 +134,7 @@ void QList<T>::clear()
   }
   end = NULL;
 }
-template<typename T>
+template<class T>
 void QList<T>::clear(int index)
 {
   node *tmp = start;
@@ -159,7 +159,7 @@ void QList<T>::clear(int index)
 }
 
 // Get at index
-template<typename T>
+template<class T>
 T QList<T>::get(int index)
 {
   node *tmp = start;
@@ -173,7 +173,7 @@ T QList<T>::get(int index)
   //TODO: Catch error when index is out of range
 }
 
-template<typename T>
+template<class T>
 T QList<T>::at(int index)
 {
   node *tmp = start;
@@ -184,5 +184,5 @@ T QList<T>::at(int index)
     else
       tmp=tmp->next;
   }
-  //TODO: Catch error when index is out of range
+  return T(); // Return default value
 }

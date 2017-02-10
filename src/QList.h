@@ -15,7 +15,7 @@
 #define NULL 0
 #endif
 
-template<typename T>
+template<class T>
 class QList
 {
 private:
