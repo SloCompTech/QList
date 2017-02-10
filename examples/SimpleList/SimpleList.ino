@@ -10,27 +10,26 @@
 
 */
 #include "QList.h"
-// Need to be for unknown reason
-#include "QList.cpp"
 QList<String> myList;
 void setup()
 {
   Serial.begin(9600);
-  myList.push_back("First");
+  myList.push_back("First"); // Add item at the back of the line
   myList.push_back("Second");
-  myList.push_front("New first");
+  myList.push_front("New first"); // Ad item at the front of the line
+  Serial.println("Items:");
+  // Go through items
+  for(int i=0;i<myList.size();i++)
+  {
+    Serial.println(myList.at(i));
+  }
+  myList.pop_back(); // Remove item at the back of the line
   Serial.println("Items:");
   for(int i=0;i<myList.size();i++)
   {
     Serial.println(myList.at(i));
   }
-  myList.pop_back();
-  Serial.println("Items:");
-  for(int i=0;i<myList.size();i++)
-  {
-    Serial.println(myList.at(i));
-  }
-  myList.clear();
+  myList.clear(); // Clear all items in table
 }
 void loop()
 {
