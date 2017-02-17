@@ -49,6 +49,17 @@ Items on the list can accessed:
   int val3 = list.at(index);
   int val3 = list.get(index);
 ```
+
+Values of items that are already in the list, can be changed:
+``` C++
+  /*
+    WARNING !
+    Note:
+      - always check if index is in valid range before you try to change value of item
+  */
+  list.at(index) = 3;
+```
+
 Size of list can be accessed with:
 ``` C++
   int list_size = list.size();
