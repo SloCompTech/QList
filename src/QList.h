@@ -15,7 +15,7 @@
 #define NULL 0
 #endif
 
-#include "Arduino.h"
+
 
 template<class T>
 class QList
@@ -42,9 +42,13 @@ public:
   T back(); //!< get item from back >
   int size(); //!< Returns size of list >
   void clear(); //!< Clears list >
-  void clear(int index); //!< Clears list >
-  T get(int index); //!< Get item at given index >
-  T& at(int index); //!< Get item at given index >
+  void clear(unsigned int index); //!< Clears list >
+  T get(unsigned int index); //!< Get item at given index >
+  T& at(unsigned int index); //!< Get item at given index >
+
+  // Array operator
+  T& operator[](unsigned int index);
+  const T& operator[](unsigned int index) const; // Not realy needed
 
   // Non - critical functions
   int length();
