@@ -174,7 +174,7 @@ T QList<T>::get(int index)
 }
 
 template<class T>
-T QList<T>::at(int index)
+T& QList<T>::at(int index)
 {
   node *tmp = start;
   for(int i=0;i<=index&&tmp!=NULL;i++)
@@ -184,7 +184,7 @@ T QList<T>::at(int index)
     else
       tmp=tmp->next;
   }
-  return T(); // Return default value
+  //TODO: Catch error when index is out of range
 }
 
 // Get length

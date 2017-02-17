@@ -44,7 +44,7 @@ public:
   void clear(); //!< Clears list >
   void clear(int index); //!< Clears list >
   T get(int index); //!< Get item at given index >
-  T at(int index); //!< Get item at given index >
+  T& at(int index); //!< Get item at given index >
 
   // Non - critical functions
   int length();
