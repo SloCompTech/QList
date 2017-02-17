@@ -58,6 +58,7 @@ Values of items that are already in the list, can be changed:
       - always check if index is in valid range before you try to change value of item
   */
   list.at(index) = 3;
+  list[index] = 3; // Same as above
 ```
 
 Size of list can be accessed with:
