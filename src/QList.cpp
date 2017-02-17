@@ -135,7 +135,7 @@ void QList<T>::clear()
   end = NULL;
 }
 template<class T>
-void QList<T>::clear(int index)
+void QList<T>::clear(unsigned int index)
 {
   node *tmp = start;
   for(int i=0;i<=index&&tmp!=NULL;i++)
@@ -160,7 +160,7 @@ void QList<T>::clear(int index)
 
 // Get at index
 template<class T>
-T QList<T>::get(int index)
+T QList<T>::get(unsigned int index)
 {
   node *tmp = start;
   for(int i=0;i<=index&&tmp!=NULL;i++)
@@ -174,7 +174,7 @@ T QList<T>::get(int index)
 }
 
 template<class T>
-T QList<T>::at(int index)
+T& QList<T>::at(unsigned int index)
 {
   node *tmp = start;
   for(int i=0;i<=index&&tmp!=NULL;i++)
@@ -184,7 +184,7 @@ T QList<T>::at(int index)
     else
       tmp=tmp->next;
   }
-  return T(); // Return default value
+  //TODO: Catch error when index is out of range
 }
 
 // Get length
@@ -202,4 +202,34 @@ int QList<T>::indexOf(T val)
     if(this->at(i) == val)
       return i;
   return -1;
+}
+
+// Array operators
+template<class T>
+T& QList<T>::operator[](unsigned int index)
+{
+  node *tmp = start;
+  for(int i=0;i<=index&&tmp!=NULL;i++)
+  {
+    if(i==index)
+      return tmp->item;
+    else
+      tmp=tmp->next;
+  }
+  //TODO: Catch error when index is out of range
+}
+
+
+template<class T>
+const T& QList<T>::operator[](unsigned int index) const
+{
+  node *tmp = start;
+  for(int i=0;i<=index&&tmp!=NULL;i++)
+  {
+    if(i==index)
+      return tmp->item;
+    else
+      tmp=tmp->next;
+  }
+  //TODO: Catch error when index is out of range
 }

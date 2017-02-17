@@ -18,6 +18,8 @@ void setup()
   myList.push_back("First"); // Add item at the back of the line
   myList.push_back("Second");
   myList.push_front("New first"); // Ad item at the front of the line
+  myList.at(1) = "NewSecond"; // Changed value of item in the list
+  myList[0] = "NewNewFirst"; // Changed value of item in the list
   Serial.println("Items:");
   // Go through items
   for(int i=0;i<myList.size();i++)
