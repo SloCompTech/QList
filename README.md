@@ -1,7 +1,7 @@
 # QList
 Linked list library for Arduino
 
-Purpose of this library is to enable programers to create lists of things
+Purpose of this library is to enable programmers to create lists of things
 
 Before we can start using library, we need to include library to our sketch
 ``` C++
@@ -48,6 +48,7 @@ Items on the list can accessed:
   */
   int val3 = list.at(index);
   int val3 = list.get(index);
+  int val3 = list[index];
 ```
 
 Values of items that are already in the list, can be changed:
