@@ -9,3 +9,5 @@ get KEYWORD2
 size  KEYWORD2
 clear KEYWORD2
 at  KEYWORD2
+length  KEYWORD2
+indexOf KEYWORD2
