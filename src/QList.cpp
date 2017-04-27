@@ -153,6 +153,7 @@ void QList<T>::clear(unsigned int index)
         end = tmp->prev;
 
       len--; // Decrease counter
+      delete tmp; // fix for memory problem
       break;
     }
   }
