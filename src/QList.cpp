@@ -129,7 +129,7 @@ void QList<T>::clear()
   {
     tmp = start;
     start = start->next;
-    delete tmp;
+    delete tmp; // Delete item
     len--; // Decrease counter
   }
   end = NULL;
@@ -153,6 +153,7 @@ void QList<T>::clear(unsigned int index)
         end = tmp->prev;
 
       len--; // Decrease counter
+      delete tmp; // Delete item
       break;
     }
   }
