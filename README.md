@@ -1,4 +1,8 @@
 # QList
+[![Build Status](https://travis-ci.org/SloCompTech/QList.svg?branch=master)](https://travis-ci.org/SloCompTech/QList) 
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)]() 
+[![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()  
+
 Linked list library for Arduino
 
 Purpose of this library is to enable programmers to create lists of things
