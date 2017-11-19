@@ -10,11 +10,11 @@
 
 */
 #include "QList.h"
-#include "QList.cpp" // For strange bug fix
+
 QList<String> myList;
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(115200);
   myList.push_back("First"); // Add item at the back of the line
   myList.push_back("Second");
   myList.push_front("New first"); // Ad item at the front of the line
