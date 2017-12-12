@@ -137,6 +137,7 @@ void QList<T>::pop_back()
 		end->next = NULL;
 		else // List became empty so we need to clear start
 		start = NULL;
+		delete tmp;
 		len--; // Decrease counter
 	}
 }
