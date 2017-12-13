@@ -47,7 +47,7 @@ Items on the list can accessed:
     WARNING !
     Note:
       - index starts with 0 not 1 so interval is [0,n)
-      - always check if index is in valid range before you try to clear item
+      - always check if index is in valid range before you try to get item
   */
   int val3 = list.at(index);
   int val3 = list.get(index);
@@ -68,7 +68,7 @@ Values of items that are already in the list, can be changed:
 Size of list can be accessed with:
 ``` C++
   int list_size = list.size();
-  int same_list_size = list.legth();
+  int same_list_size = list.length();
 ```
 
 You can also search for items in list:
