@@ -1,3 +1,5 @@
+<p align="center"><img src="logo.png" alt="QList" height="200px"></p>
+
 # QList
 [![Build Status](https://travis-ci.org/SloCompTech/QList.svg?branch=master)](https://travis-ci.org/SloCompTech/QList) 
 [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)]()  
