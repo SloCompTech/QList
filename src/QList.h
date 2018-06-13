@@ -203,6 +203,8 @@ void QList<T>::clear(unsigned int index)
 			delete tmp; // Delete item
 			break;
 		}
+		else
+		tmp=tmp->next;
 	}
 }
 
