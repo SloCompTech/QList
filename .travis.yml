@@ -9,15 +9,15 @@ stages:
 jobs:
   include:
     stage: test
-      install:
+    install:
       - ${DOCKER_COMMAND} pull slocomptech/docker-arduino:latest
       - ${DOCKER_COMMAND} run -it -d --name buildenv slocomptech/docker-arduino bash
       - ${DOCKER_COMMAND} ps
-      before_script:
+    before_script:
       - ${DOCKER_COMMAND} exec buildenv "git clone https://github.com/SloCompTech/QList QList"
-      script:
+    script:
       - ${DOCKER_COMMAND} exec buildenv "arduino-builder -hardware ${ARDUINO_HARDWARE} -tools ${ARDUINO_TOOLS}/avr ${ARDUINO_TOOLS_BUILDER} -libraries ${ARDUINO_LIBS} ./QList -fqbn ${A_FQBN}:uno Qlist/examples/SimpleList/SimpleList.ino"
-      after_script:
+    after_script:
       - rm -rf *
       - ${DOCKER_COMMAND} exec buildenv "exit"
       - ${DOCKER_COMMAND} ps -a
