@@ -1,7 +1,5 @@
 language: cpp
 sudo: enabled
-env:
-- DOCKER_COMMAND="sudo docker"
 services:
 - docker
 stages:
@@ -10,14 +8,14 @@ jobs:
   include:
     stage: test
     install:
-      - ${DOCKER_COMMAND} pull slocomptech/docker-arduino:latest
-      - ${DOCKER_COMMAND} run -it -d --name buildenv slocomptech/docker-arduino bash
-      - ${DOCKER_COMMAND} ps
+      - sudo docker pull slocomptech/docker-arduino:latest
+      - sudo docker run -it -d --name buildenv slocomptech/docker-arduino bash
+      - sudo docker ps
     before_script:
-      - ${DOCKER_COMMAND} exec buildenv "git clone https://github.com/SloCompTech/QList QList"
+      - sudo docker exec buildenv "git clone https://github.com/SloCompTech/QList QList"
     script:
-      - ${DOCKER_COMMAND} exec buildenv "arduino-builder -hardware ${ARDUINO_HARDWARE} -tools ${ARDUINO_TOOLS}/avr ${ARDUINO_TOOLS_BUILDER} -libraries ${ARDUINO_LIBS} ./QList -fqbn ${A_FQBN}:uno Qlist/examples/SimpleList/SimpleList.ino"
+      - sudo docker exec buildenv "arduino-builder -hardware \${ARDUINO_HARDWARE} -tools \${ARDUINO_TOOLS}/avr \${ARDUINO_TOOLS_BUILDER} -libraries \${ARDUINO_LIBS} ./QList -fqbn \${A_FQBN}:uno QList/examples/SimpleList/SimpleList.ino"
     after_script:
       - rm -rf *
-      - ${DOCKER_COMMAND} exec buildenv "exit"
-      - ${DOCKER_COMMAND} ps -a
+      - sudo docker exec buildenv "exit"
+      - sudo docker ps -a
