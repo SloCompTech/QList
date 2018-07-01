@@ -12,10 +12,11 @@ jobs:
       - sudo docker run -it -d --name buildenv slocomptech/docker-arduino bash
       - sudo docker ps
     before_script:
-      - sudo docker exec buildenv "git clone https://github.com/SloCompTech/QList QList"
+      - sudo docker exec buildenv git clone https://github.com/SloCompTech/QList QList
     script:
-      - sudo docker exec buildenv "arduino-builder -hardware \${ARDUINO_HARDWARE} -tools \${ARDUINO_TOOLS}/avr \${ARDUINO_TOOLS_BUILDER} -libraries \${ARDUINO_LIBS} ./QList -fqbn \${A_FQBN}:uno QList/examples/SimpleList/SimpleList.ino"
+      - sudo docker exec buildenv bash -c 'arduino-builder -hardware ${ARDUINO_HARDWARE} -tools ${ARDUINO_HARDWARE}/tools/avr -tools ${ARDUINO_TOOLS_BUILDER} -libraries ${ARDUINO_LIBS} -libraries ./QList -fqbn ${A_FQBN}:uno QList/examples/SimpleList/SimpleList.ino'
     after_script:
-      - rm -rf *
-      - sudo docker exec buildenv "exit"
+      - sudo docker stop buildenv
+      - sudo docker rm buildenv
+      - sudo docker rmi slocomptech/docker-arduino:latest
       - sudo docker ps -a
