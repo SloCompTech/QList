@@ -13,7 +13,7 @@ jobs:
       - sudo docker ps
     before_script:
       - sudo docker exec buildenv git clone -b ${TRAVIS_BRANCH} https://github.com/SloCompTech/QList.git Arduino/libraries/QList
-      - sudo docker exec buildenv bash -c 'echo "arduino:avr:uno" >> arduino_platforms.txt && echo "arduino:avr:mega:cpu=atmega2560" >> arduino_platforms.txt && echo "arduino:avr:nano:cpu=atmega328p" >> arduino_platforms.txt && echo "arduino:avr:mini:cpu=atmega328p" >> arduino_platforms.txt && echo "arduino:avr:micro" >> arduino_platforms.txt'
+      - sudo docker exec buildenv bash -c 'echo "arduino:avr:uno" >> arduino_platforms.txt && echo "arduino:avr:mega:cpu=atmega2560" >> arduino_platforms.txt && echo "arduino:avr:nano:cpu=atmega328" >> arduino_platforms.txt && echo "arduino:avr:mini:cpu=atmega328" >> arduino_platforms.txt && echo "arduino:avr:micro" >> arduino_platforms.txt'
     script:
       - sudo docker exec buildenv bash -c 'arduino_build_lib Arduino/libraries/QList'
     after_script:
