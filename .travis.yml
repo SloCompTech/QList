@@ -13,11 +13,7 @@ jobs:
       - sudo docker ps
     before_script:
       - sudo docker exec buildenv git clone https://github.com/SloCompTech/QList QList
-      - sudo docker exec buildenv bash -c 'echo "arduino:avr:uno" >> arduino_platforms.txt && \
-        echo "arduino:avr:mega" >> arduino_platforms.txt && \
-        echo "arduino:avr:nano" >> arduino_platforms.txt && \
-        echo "arduino:avr:mini" >> arduino_platforms.txt && \
-        echo "arduino:avr:micro" >> arduino_platforms.txt'
+      - sudo docker exec buildenv bash -c 'echo "arduino:avr:uno" >> arduino_platforms.txt && echo "arduino:avr:mega" >> arduino_platforms.txt && echo "arduino:avr:nano" >> arduino_platforms.txt && echo "arduino:avr:mini" >> arduino_platforms.txt && echo "arduino:avr:micro" >> arduino_platforms.txt'
     script:
       - sudo docker exec buildenv bash -c 'arduino_build_lib QList'
     after_script:
