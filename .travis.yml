@@ -1,12 +1,23 @@
-language: c
-sudo: false
-before_install:
-  - source <(curl -SLs https://raw.githubusercontent.com/adafruit/travis-ci-arduino/master/install.sh)
-install:
-  - arduino --install-library "QList"
-script:
-  - build_main_platforms
-notifications:
-  email:
-    on_success: change
-    on_failure: change
+language: cpp
+sudo: enabled
+services:
+- docker
+stages:
+- test
+jobs:
+  include:
+    stage: test
+    install:
+      - sudo docker pull slocomptech/docker-arduino:latest
+      - sudo docker run -it -d --name buildenv slocomptech/docker-arduino bash
+      - sudo docker ps
+    before_script:
+      - sudo docker exec buildenv git clone -b ${TRAVIS_BRANCH} https://github.com/SloCompTech/QList.git QList
+      - sudo docker exec buildenv bash -c 'echo "arduino:avr:uno" >> arduino_platforms.txt && echo "arduino:avr:mega:cpu=atmega2560" >> arduino_platforms.txt && echo "arduino:avr:nano:cpu=atmega328" >> arduino_platforms.txt && echo "arduino:avr:mini:cpu=atmega328" >> arduino_platforms.txt && echo "arduino:avr:micro" >> arduino_platforms.txt'
+    script:
+      - sudo docker exec buildenv bash -c 'arduino_build_lib QList'
+    after_script:
+      - sudo docker stop buildenv
+      - sudo docker rm buildenv
+      - sudo docker rmi slocomptech/docker-arduino:latest
+      - sudo docker ps -a
